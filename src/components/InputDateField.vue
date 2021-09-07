@@ -3,7 +3,11 @@
     <p v-if="title" class="selector-date-title">{{ title }}</p>
 
     <div class="dates-block">
-      <select v-model="selectedDays" class="select-date">
+      <select 
+        v-model="selectedDays" 
+        class="select-date"
+        v-on:click="$emit('checked-form')"
+      >
         <option disabled value="">Месяц</option>
         <option class="selector-date-wrapper" 
           v-for="(month, index) in months" 
@@ -14,7 +18,10 @@
         </option>
       </select>
 
-      <select class="select-date">
+      <select 
+        class="select-date"
+        v-on:click="$emit('checked-form')"
+      >
         <option disabled value="">День</option>
         <option class="selector-date-wrapper" 
           v-for="n in selectedDays" 
@@ -26,7 +33,11 @@
         <option v-if="selectedDays == 28 && selectedYear % 4 == 0" value="29">29</option>
       </select>
 
-      <select v-model="selectedYear" class="select-date">
+      <select 
+        v-model="selectedYear" 
+        class="select-date"
+        v-on:click="$emit('checked-form')"
+      >
         <option disabled value="">Год</option>
         <option class="selector-date-wrapper" v-for="n in 121" :key="n">
           {{ 2022 - n }}

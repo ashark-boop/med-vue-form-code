@@ -13,6 +13,7 @@
       <label 
         class="form-label" 
         :for="item.name+'-selector-input'"
+        v-on:click="$emit('checked-form')"
       >
         <p>{{ item.value }}</p>
       </label>
@@ -59,7 +60,6 @@ export default {
 }
 
 .selector-item-wrapper{
-  height: 54px;
   padding: 5px 0;
   margin: 0;
 
@@ -76,15 +76,20 @@ export default {
   cursor: pointer;
 
   border: 1px solid rgb(121, 121, 121);
+  color: #000;
 }
 
 .form-label > p{
   text-align: center;
   font-size: 16px;
+  color: #000;
 }
 
 .input-selector:checked+.form-label{
   border: 1px solid rgb(130, 130, 255);
+}
+
+.input-selector:checked+.form-label>p{
   color: rgb(130, 130, 255);
 }
 </style>
